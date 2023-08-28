@@ -11,6 +11,6 @@ package com.enderfire.paiitps;
 public class PAIITPS {
 
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(() -> new MainForm().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MainMenu().setVisible(true));
     }
 }
