@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.enderfire.paiitps.TP2Part1;
+package com.enderfire.paiitps.TP2Part1.Modelo;
 
 import java.util.*;
 
@@ -44,7 +44,12 @@ public class Carrera {
         return planes.get(index);
     }
     
-    public List<Plan> getMaterias(){
+    public List<Plan> getPlanes(){
         return planes;
+    }
+    
+    @Override
+    public String toString(){
+        return String.format("Carrera: %s [%d] [Planes: %d]", name,id,planes.size());
     }
 }

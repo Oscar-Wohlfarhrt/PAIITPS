@@ -4,6 +4,8 @@
  */
 package com.enderfire.paiitps;
 
+import com.enderfire.paiitps.TP2Part1.*;
+
 /**
  *
  * @author Oscar2
@@ -42,7 +44,12 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         Part1TP2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        Part1TP2.setText("TP2 Ejercicio 1 (In Progress)");
+        Part1TP2.setText("TP2 Ejercicio 1");
+        Part1TP2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Part1TP2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Programacion Avanzada 2 Trabajos Practicos");
@@ -88,6 +95,10 @@ public class MainMenu extends javax.swing.JFrame {
     private void Part1TP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Part1TP1ActionPerformed
         new TP1Form().setVisible(true);
     }//GEN-LAST:event_Part1TP1ActionPerformed
+
+    private void Part1TP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Part1TP2ActionPerformed
+        new TP2Part1Form().setVisible(true);
+    }//GEN-LAST:event_Part1TP2ActionPerformed
 
     /**
      * @param args the command line arguments
