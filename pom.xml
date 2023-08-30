@@ -11,4 +11,12 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.enderfire.paiitps.PAIITPS</exec.mainClass>
     </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/net.sourceforge.jdatepicker/jdatepicker -->
+        <dependency>
+            <groupId>net.sourceforge.jdatepicker</groupId>
+            <artifactId>jdatepicker</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    </dependencies>
 </project>
