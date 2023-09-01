@@ -15,9 +15,25 @@ public class Documento {
     Date fechaCreacion;
     Area currentArea;
     List<Movimiento> moves = new ArrayList<>();
-
+    
     public void setCurrentArea(Area currentArea) {
         this.currentArea = currentArea;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+    
+    public String getType(){
+        String type="Unkown";
+        if(this instanceof Nota)
+            type="Nota";
+        else if (this instanceof Expediente)
+            type="Expediente";
+        else if (this instanceof Correspondencia)
+            type="Correspondencia";
+                   
+        return type;
     }
     
     public Area getCurrentArea() {
@@ -30,5 +46,11 @@ public class Documento {
     
     public void moveTo(Area area,Date fecha){
         moves.add(new Movimiento(moves.size(),currentArea,area,fecha));
+        currentArea.getDocumentsList().remove(this);
+        area.addDoc(this);
+    }
+    
+    public List<String> getMovesStrings(){
+        return moves.stream().map((m)->m.toString()).toList();
     }
 }

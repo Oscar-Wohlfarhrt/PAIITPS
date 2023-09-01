@@ -27,6 +27,10 @@ public class Movimiento {
         return fecha;
     }
     
-    
+    @Override
+    public String toString()
+    {
+        return String.format("moved from: \"%s\" to \"%s\" on %s", fromArea,toArea,fecha);
+    }
     
 }

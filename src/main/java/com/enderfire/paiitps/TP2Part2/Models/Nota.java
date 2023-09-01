@@ -12,4 +12,8 @@ public class Nota extends Documento {
     Integer nro;
     Integer anio;
     String asunto;
+    
+    public Nota(Integer id){
+        this.id=id;
+    }
 }

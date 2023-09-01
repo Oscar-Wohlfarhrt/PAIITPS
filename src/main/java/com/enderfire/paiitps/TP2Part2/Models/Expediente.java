@@ -14,4 +14,7 @@ public class Expediente extends Documento {
     Integer anio;
     String anexo;
     
+    public Expediente(Integer id){
+        this.id=id;
+    }
 }

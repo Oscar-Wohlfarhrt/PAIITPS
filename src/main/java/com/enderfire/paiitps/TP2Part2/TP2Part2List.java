@@ -5,7 +5,9 @@
 package com.enderfire.paiitps.TP2Part2;
 
 import com.enderfire.paiitps.TP2Part2.Models.*;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -51,7 +53,7 @@ public class TP2Part2List extends javax.swing.JFrame {
         MoveDoc = new javax.swing.JButton();
         MovesListLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        MovesList = new javax.swing.JList<>();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -104,23 +106,38 @@ public class TP2Part2List extends javax.swing.JFrame {
         });
 
         DocList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DocList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocListActionPerformed(evt);
+            }
+        });
 
         ToAreaList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         DocTypeLabel.setText("Type: ");
 
         DelDoc.setText("Eliminar Documento");
+        DelDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelDocActionPerformed(evt);
+            }
+        });
 
         MoveDoc.setText("Mover Documento");
+        MoveDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoveDocActionPerformed(evt);
+            }
+        });
 
         MovesListLabel.setText("Lista de movimientos:");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        MovesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList2);
+        jScrollPane3.setViewportView(MovesList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,14 +151,14 @@ public class TP2Part2List extends javax.swing.JFrame {
                             .addComponent(jScrollPane3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(MovesListLabel)
-                                .addGap(0, 400, Short.MAX_VALUE)))
+                                .addGap(0, 419, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ToAreaList, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MoveDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
+                                .addComponent(MoveDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
                             .addComponent(AreaControlLabel)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -204,7 +221,7 @@ public class TP2Part2List extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MovesListLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -214,11 +231,11 @@ public class TP2Part2List extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
 
         pack();
@@ -228,12 +245,33 @@ public class TP2Part2List extends javax.swing.JFrame {
         //DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(Sistema.getStringAreas());
         //AreaList.setModel(model);
         
-        DefaultComboBoxModel<String> dlModel = (DefaultComboBoxModel<String>)AreaList.getModel();
+        DefaultComboBoxModel<String> dlModel1 = (DefaultComboBoxModel<String>)AreaList.getModel();
         Integer selected = AreaList.getSelectedIndex();
         AreaList.setSelectedIndex(-1);
-        dlModel.removeAllElements();
-        dlModel.addAll(Sistema.getStringAreas());
+        dlModel1.removeAllElements();
+        dlModel1.addAll(Sistema.getStringAreas());
         AreaList.setSelectedIndex(selected<AreaList.getItemCount()?selected:-1);
+        dlModel1 = (DefaultComboBoxModel<String>)ToAreaList.getModel();
+        selected = ToAreaList.getSelectedIndex();
+        ToAreaList.setSelectedIndex(-1);
+        dlModel1.removeAllElements();
+        dlModel1.addAll(Sistema.getStringAreas());
+        ToAreaList.setSelectedIndex(selected<ToAreaList.getItemCount()?selected:-1);
+        
+        DefaultComboBoxModel<String> dlModel2 = (DefaultComboBoxModel<String>)DocList.getModel();
+        selected = DocList.getSelectedIndex();
+        DocList.setSelectedIndex(-1);
+        dlModel2.removeAllElements();
+        if(AreaList.getSelectedIndex()>=0){
+            dlModel2.addAll(Sistema.getArea(AreaList.getSelectedIndex()).getDocumentsList().stream().map((d)->d.getId().toString()).toList());
+            DocList.setSelectedIndex(selected<DocList.getItemCount()?selected:-1);
+        }
+        
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1){
+            DefaultListModel<String> lModel = (DefaultListModel<String>)MovesList.getModel();
+            lModel.clear();
+            lModel.addAll(Sistema.getArea(AreaList.getSelectedIndex()).getDocumento(DocList.getSelectedIndex()).getMovesStrings());
+        }
     }
     
     private void AddAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAreaActionPerformed
@@ -255,19 +293,34 @@ public class TP2Part2List extends javax.swing.JFrame {
 
     private void AddDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDocActionPerformed
         if(AreaList.getSelectedIndex()>-1){
-            Area current = Sistema.getArea(AreaList.getSelectedIndex());
-            Documento newDoc = null;
-            switch(NewDocTypeDrop.getSelectedIndex()){
-                case 0 -> newDoc=new Nota();
-                case 1 -> newDoc=new Expediente();
-                case 2 -> newDoc=new Correspondencia();
-            }
-            if(newDoc!=null){
+            try{
+                Area current = Sistema.getArea(AreaList.getSelectedIndex());
+                Documento newDoc = Sistema.crearDocumento(NewDocTypeDrop.getSelectedIndex());
                 current.addDoc(newDoc);
+                
                 UpdateUI();
+                
             }
+            catch(Exception e){}
         }
     }//GEN-LAST:event_AddDocActionPerformed
+
+    private void DocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocListActionPerformed
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1)
+            DocTypeLabel.setText(Sistema.getArea(AreaList.getSelectedIndex()).getDocumento(DocList.getSelectedIndex()).getType());
+    }//GEN-LAST:event_DocListActionPerformed
+
+    private void DelDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelDocActionPerformed
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1)
+            Sistema.getArea(AreaList.getSelectedIndex()).delDocumento(DocList.getSelectedIndex());
+        UpdateUI();
+    }//GEN-LAST:event_DelDocActionPerformed
+
+    private void MoveDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoveDocActionPerformed
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1 && ToAreaList.getSelectedIndex()>-1)
+            Sistema.getArea(AreaList.getSelectedIndex()).getDocumento(DocList.getSelectedIndex()).moveTo(Sistema.getArea(ToAreaList.getSelectedIndex()), new Date());
+        UpdateUI();
+    }//GEN-LAST:event_MoveDocActionPerformed
 
     
     /**
@@ -317,6 +370,7 @@ public class TP2Part2List extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> DocList;
     private javax.swing.JLabel DocTypeLabel;
     private javax.swing.JButton MoveDoc;
+    private javax.swing.JList<String> MovesList;
     private javax.swing.JLabel MovesListLabel;
     private javax.swing.JTextField NewAreaName;
     private javax.swing.JTextField NewAreaTel;
@@ -325,7 +379,6 @@ public class TP2Part2List extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ToAreaList;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

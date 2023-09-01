@@ -11,6 +11,7 @@ import java.util.*;
  * @author Oscar2
  */
 public class Sistema {
+    static Integer lastDocId=0;
     private static List<Area> areas = new ArrayList<>();
     
     public static void crearArea(String name, String tel){
@@ -33,6 +34,19 @@ public class Sistema {
     
     public static void moverDocumento(Documento doc, Area dest, Date fecha){
         doc.moveTo(dest, fecha);
+    }
+    
+    public static Documento crearDocumento(int tipo) throws Exception{
+        Documento doc=null;
+        switch(tipo){
+                case 0 -> doc=new Nota(lastDocId);
+                case 1 -> doc=new Expediente(lastDocId);
+                case 2 -> doc=new Correspondencia(lastDocId);
+            }
+        if(doc == null)
+            throw new Exception("Invalid document type");
+        lastDocId++;
+        return doc;
     }
     
     public static List<Movimiento> getMovimientos(Date fecha){

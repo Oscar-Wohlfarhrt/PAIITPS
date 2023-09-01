@@ -11,4 +11,9 @@ package com.enderfire.paiitps.TP2Part2.Models;
 public class Correspondencia extends Documento {
     String remitente;
     String direccion;
+    
+    
+    public Correspondencia(Integer id){
+        this.id=id;
+    }
 }
