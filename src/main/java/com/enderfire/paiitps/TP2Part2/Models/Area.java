@@ -15,10 +15,22 @@ public class Area {
     String nombre;
     String telefono;
     List<Documento> documents = new ArrayList<>();
+    
+    public Area(Integer id, String name, String tel){
+        this.id=id;
+        nombre=name;
+        telefono=tel;
+    }
 
     public List<Documento> getDocumentsList() {
         return documents;
     }
     
-    
+    public void addDoc(Documento doc){
+        documents.add(doc);
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
 }
