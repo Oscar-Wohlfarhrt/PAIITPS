@@ -46,7 +46,7 @@ public class Documento {
     
     public void moveTo(Area area,Date fecha){
         moves.add(new Movimiento(moves.size(),currentArea,area,fecha));
-        currentArea.getDocumentsList().remove(this);
+        currentArea.delDocumento(this);
         area.addDoc(this);
     }
     

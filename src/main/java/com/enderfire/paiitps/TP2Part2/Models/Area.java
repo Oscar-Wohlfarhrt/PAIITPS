@@ -28,8 +28,8 @@ public class Area {
     }
     
     public void addDoc(Documento doc){
-        doc.setCurrentArea(this);
         documents.add(doc);
+        doc.setCurrentArea(this);
     }
     
     public Documento getDocumento(int index){
@@ -40,6 +40,10 @@ public class Area {
         documents.remove(index);
     }
 
+    public void delDocumento(Documento doc){
+        documents.remove(doc);
+    }
+    
     public String getTelefono() {
         return telefono;
     }

@@ -5,6 +5,7 @@
 package com.enderfire.paiitps;
 
 import com.enderfire.paiitps.TP2Part1.*;
+import com.enderfire.paiitps.TP2Part2.*;
 
 /**
  *
@@ -32,6 +33,8 @@ public class MainMenu extends javax.swing.JFrame {
         Part1TP1 = new javax.swing.JButton();
         Part1TP2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        Part1TP3 = new javax.swing.JButton();
+        Part1TP4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +57,22 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Programacion Avanzada 2 Trabajos Practicos");
 
+        Part1TP3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Part1TP3.setText("TP2 Ejercicio 2 Ventana 1");
+        Part1TP3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Part1TP3ActionPerformed(evt);
+            }
+        });
+
+        Part1TP4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Part1TP4.setText("TP2 Ejercicio 2 Ventana 2");
+        Part1TP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Part1TP4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -63,7 +82,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Part1TP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Part1TP2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Part1TP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Part1TP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -75,7 +96,11 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(Part1TP1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Part1TP2)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Part1TP3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Part1TP4)
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,6 +124,14 @@ public class MainMenu extends javax.swing.JFrame {
     private void Part1TP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Part1TP2ActionPerformed
         new TP2Part1Form().setVisible(true);
     }//GEN-LAST:event_Part1TP2ActionPerformed
+
+    private void Part1TP3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Part1TP3ActionPerformed
+        new TP2Part2MovesList().setVisible(true);
+    }//GEN-LAST:event_Part1TP3ActionPerformed
+
+    private void Part1TP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Part1TP4ActionPerformed
+        new TP2Part2Controls().setVisible(true);
+    }//GEN-LAST:event_Part1TP4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +171,8 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Part1TP1;
     private javax.swing.JButton Part1TP2;
+    private javax.swing.JButton Part1TP3;
+    private javax.swing.JButton Part1TP4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

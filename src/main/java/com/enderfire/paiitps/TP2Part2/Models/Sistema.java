@@ -4,6 +4,7 @@
  */
 package com.enderfire.paiitps.TP2Part2.Models;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -48,10 +49,11 @@ public class Sistema {
         lastDocId++;
         return doc;
     }
-    
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     public static List<Movimiento> getMovimientos(Date fecha){
+        
         return areas.stream().flatMap((a)->a.getDocumentsList()
                 .stream().flatMap((d)->d.getMovesList().stream()))
-                .filter((m)->m.getFecha().equals(fecha)).toList();
+                .filter((m)->sdf.format(m.getFecha()).equalsIgnoreCase(sdf.format(fecha))).toList();
     }
 }

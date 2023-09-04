@@ -4,7 +4,11 @@
  */
 package com.enderfire.paiitps.TP2Part2;
 
-import javax.swing.text.MaskFormatter;
+import com.enderfire.paiitps.TP2Part2.Models.*;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 /**
  *
@@ -13,15 +17,22 @@ import javax.swing.text.MaskFormatter;
 public class TP2Part2Controls extends javax.swing.JFrame {
 
     /**
-     * Creates new form TP2Part2Controls
+     * Creates new form TP2Part2
      */
     public TP2Part2Controls() {
         initComponents();
+        Sistema.crearArea("Area 1", "telefono 1");
+        Sistema.crearArea("Area 2", "telefono 2");
+        Area area = Sistema.getArea(0);
+        Area area2 = Sistema.getArea(1);
         try{
-            MaskFormatter mask = new MaskFormatter("##/##/####");
-            mask.install(jFormattedTextField1);
+            Documento doc = Sistema.crearDocumento(0);
+            area.addDoc(doc);
+            doc.moveTo(area2, new Date());
+            doc.moveTo(area, new Date());
         }
         catch(Exception e){}
+        UpdateUI();
     }
 
     /**
@@ -33,55 +44,303 @@ public class TP2Part2Controls extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        AreaControlLabel = new javax.swing.JLabel();
+        NewAreaName = new javax.swing.JTextField();
+        NewAreaTel = new javax.swing.JTextField();
+        AddArea = new javax.swing.JButton();
+        AreaList = new javax.swing.JComboBox<>();
+        DelArea = new javax.swing.JButton();
+        AreaTel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        NewDocName = new javax.swing.JTextField();
+        NewDocTypeDrop = new javax.swing.JComboBox<>();
+        AddDoc = new javax.swing.JButton();
+        DocList = new javax.swing.JComboBox<>();
+        ToAreaList = new javax.swing.JComboBox<>();
+        DocTypeLabel = new javax.swing.JLabel();
+        DelDoc = new javax.swing.JButton();
+        MoveDoc = new javax.swing.JButton();
+        MovesListLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        MovesList = new javax.swing.JList<>();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane2.setViewportView(jList1);
 
-        jFormattedTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jFormattedTextField1KeyTyped(evt);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        AreaControlLabel.setText("Control de areas:");
+
+        NewAreaName.setText("new area");
+
+        NewAreaTel.setText("376 555-5555");
+
+        AddArea.setText("Añadir Area");
+        AddArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAreaActionPerformed(evt);
             }
         });
+
+        AreaList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AreaListActionPerformed(evt);
+            }
+        });
+
+        DelArea.setText("Eliminar Area");
+        DelArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelAreaActionPerformed(evt);
+            }
+        });
+
+        AreaTel.setText("Tel: ");
+
+        jLabel2.setText("Control de documentos:");
+
+        NewDocName.setText("new doc");
+
+        NewDocTypeDrop.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nota", "Expediente", "Correspondencia" }));
+
+        AddDoc.setText("Añadir Documento");
+        AddDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddDocActionPerformed(evt);
+            }
+        });
+
+        DocList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DocList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocListActionPerformed(evt);
+            }
+        });
+
+        ToAreaList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        DocTypeLabel.setText("Type: ");
+
+        DelDoc.setText("Eliminar Documento");
+        DelDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DelDocActionPerformed(evt);
+            }
+        });
+
+        MoveDoc.setText("Mover Documento");
+        MoveDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MoveDocActionPerformed(evt);
+            }
+        });
+
+        MovesListLabel.setText("Lista de movimientos:");
+
+        MovesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(MovesList);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(MovesListLabel)
+                                .addGap(0, 419, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ToAreaList, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(MoveDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
+                            .addComponent(AreaControlLabel)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(AreaList, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE)
+                                    .addComponent(NewAreaName, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(NewAreaTel, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                    .addComponent(AreaTel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DelArea)
+                                    .addComponent(AddArea, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(DocList, javax.swing.GroupLayout.Alignment.LEADING, 0, 120, Short.MAX_VALUE)
+                                    .addComponent(NewDocName, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(NewDocTypeDrop, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DocTypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(AddDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DelDoc))))
+                        .addGap(131, 131, 131))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AreaControlLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NewAreaName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddArea)
+                    .addComponent(NewAreaTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AreaList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DelArea)
+                    .addComponent(AreaTel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NewDocName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddDoc)
+                    .addComponent(NewDocTypeDrop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DocList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DelDoc)
+                    .addComponent(DocTypeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ToAreaList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MoveDoc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MovesListLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 268, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormattedTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFormattedTextField1KeyTyped
+    private void UpdateUI(){
+        //DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(Sistema.getStringAreas());
+        //AreaList.setModel(model);
         
-    }//GEN-LAST:event_jFormattedTextField1KeyTyped
+        DefaultComboBoxModel<String> dlModel1 = (DefaultComboBoxModel<String>)AreaList.getModel();
+        Integer selected = AreaList.getSelectedIndex();
+        AreaList.setSelectedIndex(-1);
+        dlModel1.removeAllElements();
+        dlModel1.addAll(Sistema.getStringAreas());
+        AreaList.setSelectedIndex(selected<AreaList.getItemCount()?selected:-1);
+        dlModel1 = (DefaultComboBoxModel<String>)ToAreaList.getModel();
+        selected = ToAreaList.getSelectedIndex();
+        ToAreaList.setSelectedIndex(-1);
+        dlModel1.removeAllElements();
+        dlModel1.addAll(Sistema.getStringAreas());
+        ToAreaList.setSelectedIndex(selected<ToAreaList.getItemCount()?selected:-1);
+        
+        DefaultComboBoxModel<String> dlModel2 = (DefaultComboBoxModel<String>)DocList.getModel();
+        selected = DocList.getSelectedIndex();
+        DocList.setSelectedIndex(-1);
+        dlModel2.removeAllElements();
+        if(AreaList.getSelectedIndex()>=0){
+            dlModel2.addAll(Sistema.getArea(AreaList.getSelectedIndex()).getDocumentsList().stream().map((d)->d.getId().toString()).toList());
+            DocList.setSelectedIndex(selected<DocList.getItemCount()?selected:-1);
+        }
+    }
+    
+    private void UpdateMoves(){
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1){
+            DefaultListModel lModel = new DefaultListModel();
+            lModel.clear();
+            lModel.addAll(Sistema.getArea(AreaList.getSelectedIndex()).getDocumento(DocList.getSelectedIndex()).getMovesStrings());
+            MovesList.setModel(lModel);
+        }
+    }
+    
+    private void AddAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAreaActionPerformed
+        Sistema.crearArea(NewAreaName.getText(), NewAreaTel.getText());
+        UpdateUI();
+    }//GEN-LAST:event_AddAreaActionPerformed
 
+    private void AreaListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaListActionPerformed
+        if(AreaList.getSelectedIndex()>-1)
+            AreaTel.setText(Sistema.getArea(AreaList.getSelectedIndex()).getTelefono());
+        
+        UpdateUI();
+    }//GEN-LAST:event_AreaListActionPerformed
+
+    private void DelAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelAreaActionPerformed
+        if(AreaList.getSelectedIndex()>-1){
+            Sistema.delArea(AreaList.getSelectedIndex());
+            UpdateUI();
+        }
+    }//GEN-LAST:event_DelAreaActionPerformed
+
+    private void AddDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDocActionPerformed
+        if(AreaList.getSelectedIndex()>-1){
+            try{
+                Area current = Sistema.getArea(AreaList.getSelectedIndex());
+                Documento newDoc = Sistema.crearDocumento(NewDocTypeDrop.getSelectedIndex());
+                current.addDoc(newDoc);
+                
+                UpdateUI();
+            }
+            catch(Exception e){}
+        }
+    }//GEN-LAST:event_AddDocActionPerformed
+
+    private void DocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocListActionPerformed
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1)
+            DocTypeLabel.setText(Sistema.getArea(AreaList.getSelectedIndex()).getDocumento(DocList.getSelectedIndex()).getType());
+        UpdateMoves();
+    }//GEN-LAST:event_DocListActionPerformed
+
+    private void DelDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelDocActionPerformed
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1)
+            Sistema.getArea(AreaList.getSelectedIndex()).delDocumento(DocList.getSelectedIndex());
+        UpdateUI();
+    }//GEN-LAST:event_DelDocActionPerformed
+
+    private void MoveDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoveDocActionPerformed
+        if(AreaList.getSelectedIndex()>-1 && DocList.getSelectedIndex()>-1 && ToAreaList.getSelectedIndex()>-1)
+            Sistema.getArea(AreaList.getSelectedIndex()).getDocumento(DocList.getSelectedIndex()).moveTo(Sistema.getArea(ToAreaList.getSelectedIndex()), new Date());
+        UpdateUI();
+    }//GEN-LAST:event_MoveDocActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -108,6 +367,9 @@ public class TP2Part2Controls extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TP2Part2Controls.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -118,8 +380,28 @@ public class TP2Part2Controls extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton AddArea;
+    private javax.swing.JButton AddDoc;
+    private javax.swing.JLabel AreaControlLabel;
+    private javax.swing.JComboBox<String> AreaList;
+    private javax.swing.JLabel AreaTel;
+    private javax.swing.JButton DelArea;
+    private javax.swing.JButton DelDoc;
+    private javax.swing.JComboBox<String> DocList;
+    private javax.swing.JLabel DocTypeLabel;
+    private javax.swing.JButton MoveDoc;
+    private javax.swing.JList<String> MovesList;
+    private javax.swing.JLabel MovesListLabel;
+    private javax.swing.JTextField NewAreaName;
+    private javax.swing.JTextField NewAreaTel;
+    private javax.swing.JTextField NewDocName;
+    private javax.swing.JComboBox<String> NewDocTypeDrop;
+    private javax.swing.JComboBox<String> ToAreaList;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }
