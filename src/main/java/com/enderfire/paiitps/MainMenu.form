@@ -44,8 +44,10 @@
                       <Component id="Part1TP1" max="32767" attributes="0"/>
                       <Component id="Part1TP2" alignment="1" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Part21TP2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Part22TP3" alignment="0" max="32767" attributes="0"/>
                       <Component id="Part1TP3" alignment="0" max="32767" attributes="0"/>
-                      <Component id="Part1TP4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="Part2TP3" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -61,10 +63,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Part1TP2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Part21TP2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Part22TP3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="Part1TP3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Part1TP4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="226" max="32767" attributes="0"/>
+                  <Component id="Part2TP3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="136" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,7 +106,7 @@
             <Property name="text" type="java.lang.String" value="Programacion Avanzada 2 Trabajos Practicos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Part1TP3">
+        <Component class="javax.swing.JButton" name="Part21TP2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
@@ -108,10 +114,10 @@
             <Property name="text" type="java.lang.String" value="TP2 Ejercicio 2 Ventana 1"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Part1TP3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Part21TP2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Part1TP4">
+        <Component class="javax.swing.JButton" name="Part22TP3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
@@ -119,7 +125,29 @@
             <Property name="text" type="java.lang.String" value="TP2 Ejercicio 2 Ventana 2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Part1TP4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Part22TP3ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="Part1TP3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="TP3 Ejercicio 1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Part1TP3ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="Part2TP3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="TP3 Ejercicios de Arreglos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Part2TP3ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

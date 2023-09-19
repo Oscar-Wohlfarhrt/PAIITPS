@@ -16,11 +16,7 @@ import javax.swing.ListModel;
  */
 public class TP2Part2Controls extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TP2Part2
-     */
-    public TP2Part2Controls() {
-        initComponents();
+    static{
         Sistema.crearArea("Area 1", "telefono 1");
         Sistema.crearArea("Area 2", "telefono 2");
         Area area = Sistema.getArea(0);
@@ -32,6 +28,12 @@ public class TP2Part2Controls extends javax.swing.JFrame {
             doc.moveTo(area, new Date());
         }
         catch(Exception e){}
+    }
+    /**
+     * Creates new form TP2Part2
+     */
+    public TP2Part2Controls() {
+        initComponents();
         UpdateUI();
     }
 
