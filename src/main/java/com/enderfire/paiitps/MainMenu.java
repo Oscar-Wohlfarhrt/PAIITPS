@@ -8,6 +8,7 @@ import com.enderfire.paiitps.TP2Part1.*;
 import com.enderfire.paiitps.TP2Part2.*;
 import com.enderfire.paiitps.TP3.TP3Part1Form;
 import com.enderfire.paiitps.TP3.TP3Part2Form;
+import com.enderfire.paiitps.TP4.TP4Form;
 
 /**
  *
@@ -39,6 +40,7 @@ public class MainMenu extends javax.swing.JFrame {
         Part22TP3 = new javax.swing.JButton();
         Part1TP3 = new javax.swing.JButton();
         Part2TP3 = new javax.swing.JButton();
+        Part1TP4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +95,14 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        Part1TP4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        Part1TP4.setText("TP4 Completo");
+        Part1TP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Part1TP4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,7 +116,8 @@ public class MainMenu extends javax.swing.JFrame {
                     .addComponent(Part21TP2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Part22TP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Part1TP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Part2TP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Part2TP3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Part1TP4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,7 +137,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(Part1TP3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Part2TP3)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Part1TP4)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,6 +180,10 @@ public class MainMenu extends javax.swing.JFrame {
         new TP3Part2Form().setVisible(true);
     }//GEN-LAST:event_Part2TP3ActionPerformed
 
+    private void Part1TP4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Part1TP4ActionPerformed
+        new TP4Form().setVisible(true);
+    }//GEN-LAST:event_Part1TP4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -206,6 +223,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton Part1TP1;
     private javax.swing.JButton Part1TP2;
     private javax.swing.JButton Part1TP3;
+    private javax.swing.JButton Part1TP4;
     private javax.swing.JButton Part21TP2;
     private javax.swing.JButton Part22TP3;
     private javax.swing.JButton Part2TP3;
