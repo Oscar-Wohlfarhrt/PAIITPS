@@ -6,6 +6,7 @@ package com.enderfire.paiitps.TP4.Controllers;
 
 import com.enderfire.paiitps.TP4.Models.*;
 import com.enderfire.paiitps.Utils.GenericEntity;
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -71,6 +72,21 @@ public class MainController {
         dom.setPrecio(70.0);
         dom.setPotenciaMaxima(4000.0);
         addArticulo(dom);
+        
+        Factura fac = new Factura();
+        fac.setNroFactura(Long.valueOf(5));
+        fac.setLetra('A');
+        fac.setFecha(LocalDate.now());
+        fac.addItem(dom,1);
+        fac.addItem(her,2);
+        addFactura(fac);
+        fac = new Factura();
+        fac.setNroFactura(Long.valueOf(7));
+        fac.setLetra('B');
+        fac.setFecha(LocalDate.now());
+        fac.addItem(ind,1);
+        fac.addItem(her,5);
+        addFactura(fac);
     }
     
     public void addArticulo(Articulo art){

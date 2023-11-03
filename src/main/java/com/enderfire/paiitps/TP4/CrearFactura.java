@@ -6,10 +6,13 @@ package com.enderfire.paiitps.TP4;
 
 import com.enderfire.paiitps.TP4.Controllers.MainController;
 import com.enderfire.paiitps.TP4.Models.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +22,7 @@ public class CrearFactura extends javax.swing.JFrame {
 
     Factura fac = new Factura();
     DefaultListModel<String> lModel;
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     /**
      * Creates new form CrearFactura
      */
@@ -67,7 +71,7 @@ public class CrearFactura extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Nueva Factura");
 
@@ -269,13 +273,18 @@ public class CrearFactura extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        fac.setLetra(letraInput.getText().charAt(0));
-        fac.setNroFactura((Long)jSpinner1.getValue());
-        fac.setFecha(LocalDate.parse(jTextField1.getText(), DateTimeFormatter.ISO_DATE));
-        MainController.mc.addFactura(fac);
-        fac=new Factura();
-        lModel=new DefaultListModel<>();
-        jList1.setModel(lModel);
+        try{
+            fac.setLetra(letraInput.getText().charAt(0));
+            fac.setNroFactura(Long.valueOf((Integer)jSpinner1.getValue()));
+            fac.setFecha(LocalDate.parse(jTextField1.getText(), dtf));
+            MainController.mc.addFactura(fac);
+            fac=new Factura();
+            lModel=new DefaultListModel<>();
+            jList1.setModel(lModel);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Revise los datos ingresados");
+        }
         updateUI();
     }//GEN-LAST:event_jButton3ActionPerformed
 

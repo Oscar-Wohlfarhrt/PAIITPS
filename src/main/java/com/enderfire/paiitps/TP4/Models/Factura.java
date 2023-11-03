@@ -6,6 +6,7 @@ package com.enderfire.paiitps.TP4.Models;
 
 import com.enderfire.paiitps.Utils.GenericEntity;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -46,8 +47,14 @@ public class Factura implements GenericEntity {
         this.nroFactura = nroFactura;
     }
     
-    public void addItem(Item art){
-        items.add(art);
+    public void addItem(Item item){
+        items.add(item);
+    }
+    public void addItem(Articulo art, Integer cant){
+        Item it = new Item();
+        it.setArticulo(art);
+        it.setCantidad(cant);
+        addItem(it);
     }
     public void delItem(int index){
         items.remove(index);
@@ -68,7 +75,8 @@ public class Factura implements GenericEntity {
         return String.join("<br>", items.stream().map(i->i.toString()).toList());
     }
     
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     public String getDetailedString(){
-        return String.format("<html>Numero: %d<br>Letra: %c<br>Fecha: %s<br>Total: $%.2f<br><br>Items:<br>%s</html>",nroFactura,letra,fecha.toString(),informarTotalPagar(),getItemsString());
+        return String.format("<html>Numero: %d<br>Letra: %c<br>Fecha: %s<br>Total: $%.2f<br><br>Items:<br>%s</html>",nroFactura,letra,fecha.format(dtf),informarTotalPagar(),getItemsString());
     }
 }
